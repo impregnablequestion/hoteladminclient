@@ -1,9 +1,10 @@
-import React from 'react'
 import styled from "@emotion/styled"
 
 const HotelContainer = () => {
   return (
-    <HotelWrapper>HotelContainer</HotelWrapper>
+    <HotelWrapper>
+      <p>Hotel Container</p>
+    </HotelWrapper>
   )
 }
 

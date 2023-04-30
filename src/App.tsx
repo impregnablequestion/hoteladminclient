@@ -1,26 +1,16 @@
 import './App.css'
-import { ThemeProvider, createTheme } from "@mui/material/styles"
-// import { useEffect, useState } from 'react';
-// import { GetHotels } from './services/HotelService';
-// import { Hotel } from './types/types';
+import { ThemeProvider } from "@mui/material/styles"
 import MainContainer from './containers/MainContainer';
+import CssBaseline from "@mui/material/CssBaseline"
+import { useThemeContext } from './theme/ThemeContextProvider';
 
 function App() {
 
-  const theme = createTheme();
-
-  // const [hotels, setHotels]= useState<Hotel[]>([]);
-
-  // useEffect(() => {
-  //   GetHotels()
-  //   // .then(res => console.log(res))
-  //   .then(res => {
-  //     setHotels(res);
-  //   })
-  // }, [])
+  const { theme } = useThemeContext();
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline/>
       <MainContainer/>
     </ThemeProvider>
   )
