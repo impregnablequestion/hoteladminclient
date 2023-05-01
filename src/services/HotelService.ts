@@ -18,6 +18,14 @@ export const GetHotelById = (id: number): Promise<Hotel> => {
     })
 }
 
+export const GetHotelByIdWithRooms = (id: number): Promise<Hotel> => {
+  return fetch(`${baseURL}/hotels/${id}?IncludeRooms=true`)
+    .then(res => res.json())
+    .then(res => {
+      return res as Hotel
+    })
+}
+
 export const PostHotel = (hotel: Hotel): Promise<Hotel> => {
   return fetch(`${baseURL}/hotels`, {
     method: 'POST',

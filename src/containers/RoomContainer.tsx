@@ -1,15 +1,28 @@
-import styled from "@emotion/styled"
+import { Container } from "@mui/material"
+import { Room } from "../types/types"
 
-const RoomContainer = () => {
-  return (
-    <RoomWrapper>RoomContainer</RoomWrapper>
-  )
+interface RoomContainerProps {
+  rooms: Room[]
 }
 
-const RoomWrapper = styled.div`
-  flex-basis: 3;
-  flex-grow: 1;
-  min-height: 10rem;;
-`
+const RoomContainer = ({ rooms }: RoomContainerProps) => {
+
+  const roomsToDisplay = rooms?.map((room) => {
+    return <li key={room.id}>{room.capacity}</li>
+  })
+
+  return (
+    
+    <Container sx={{
+      flexBasis: 3,
+      flexGrow: 1,
+      minHeight: "10rem"
+    }}>
+      <ul>
+        {roomsToDisplay}
+      </ul>
+    </Container>
+  )
+}
 
 export default RoomContainer

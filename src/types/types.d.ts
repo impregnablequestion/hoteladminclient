@@ -5,6 +5,7 @@ export interface Room {
   roomNumber: string | null;
   type: RoomType | null;
   description: string | null;
+  hotelId: number;
 }
 
 export interface Hotel {

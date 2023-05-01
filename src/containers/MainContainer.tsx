@@ -1,29 +1,39 @@
-import Footer from "../components/Footer"
-import Header from "../components/Header"
+import { Container } from "@mui/material"
 import HotelContainer from "./HotelContainer"
 import RoomContainer from "./RoomContainer"
-import styled from "@emotion/styled"
+import { useEffect, useState } from "react"
+import { Hotel, Room } from "../types/types"
+import { GetHotelById, GetHotelByIdWithRooms, GetHotels } from "../services/HotelService"
+
 
 
 const MainContainer = () => {
+
+  const [hotels, setHotels] = useState<Hotel[]>([])
+  const [selectedHotel, setSelectedHotel] = useState<Hotel | null>(null);
+  const [selectedRooms, setSelectedRooms] = useState<Room[]>([])
+
+  useEffect(() => {
+    selectedHotel && GetHotelByIdWithRooms(selectedHotel.id)
+    .then(res => {
+      setSelectedRooms(res.rooms);
+    })
+  }, [selectedHotel, setSelectedHotel])
+
+  useEffect(() => {
+    GetHotels()
+    .then(res => setHotels(res));
+  }, [])
+
   return (
-    <div className="wrapper">
-      <Header/>
-      <InfoContainer>
-        <HotelContainer/>
-        <RoomContainer/>
-      </InfoContainer>
-      <Footer/>
-    </div>
+    <Container sx={{
+      display: 'flex',
+      justifyContent: 'space-around'
+    }}>
+      <HotelContainer hotels = {hotels} setSelectedHotel = {setSelectedHotel}/>
+      <RoomContainer rooms = {selectedRooms}/>
+    </Container>
   )
 }
-
-const InfoContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  
-`
-
-
 
 export default MainContainer
