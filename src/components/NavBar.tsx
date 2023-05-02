@@ -5,8 +5,8 @@ import { Link } from "@mui/material"
 const NavBar = () => {
   return (
     <NavWrapper>
-      <Link href="/">log in</Link>
-      <Link href="/">sign up</Link>
+      <Link href="/" color={"inherit"}>log in</Link>
+      <Link href="/" color={"inherit"}>sign up</Link>
     </NavWrapper>
   )
 }

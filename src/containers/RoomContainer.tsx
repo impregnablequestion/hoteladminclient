@@ -1,8 +1,9 @@
-import { Container } from "@mui/material"
-import { Room } from "../types/types"
+import { Container, Button } from "@mui/material"
+import { Hotel, Room } from "../types/types"
 
 interface RoomContainerProps {
   rooms: Room[]
+  hotel: Hotel | null
 }
 
 const RoomContainer = ({ rooms }: RoomContainerProps) => {
@@ -16,8 +17,16 @@ const RoomContainer = ({ rooms }: RoomContainerProps) => {
     <Container sx={{
       flexBasis: 3,
       flexGrow: 1,
-      minHeight: "10rem"
+      minHeight: "10rem",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      padding: "1rem"
     }}>
+      <Button variant="outlined" sx={{
+        alignSelf: "center"
+      }}>Add Room</Button>
       <ul>
         {roomsToDisplay}
       </ul>

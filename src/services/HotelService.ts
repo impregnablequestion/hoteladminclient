@@ -26,7 +26,7 @@ export const GetHotelByIdWithRooms = (id: number): Promise<Hotel> => {
     })
 }
 
-export const PostHotel = (hotel: Hotel): Promise<Hotel> => {
+export const PostHotel = (hotel: Partial<Hotel>): Promise<Hotel> => {
   return fetch(`${baseURL}/hotels`, {
     method: 'POST',
     headers: {
@@ -39,3 +39,21 @@ export const PostHotel = (hotel: Hotel): Promise<Hotel> => {
       return res as Hotel
     })
 } 
+
+export const PutHotel = (hotel: Hotel): Promise<Response> => {
+  const { id, ...body } = hotel;
+  return fetch(`${baseURL}/hotels/${hotel.id}`, 
+  {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+}
+
+export const DeleteHotel = (id: number): Promise<Response> => {
+  return fetch(`${baseURL}/hotels/${id}`, {
+    method: 'DELETE'
+  })
+}

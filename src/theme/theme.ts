@@ -1,5 +1,5 @@
 import { PaletteMode } from "@mui/material";
-import { amber, deepOrange, grey, blueGrey } from "@mui/material/colors";
+import { amber, grey } from "@mui/material/colors";
 
 const theme = {
   palette: {
@@ -13,8 +13,8 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     ...(mode === "light"
       ? {
           // palette values for light mode
-          primary: amber,
-          divider: amber[200],
+          // primary: "#532eaf",
+          // divider: "#b59edf",
           text: {
             primary: grey[900],
             secondary: grey[800],
@@ -22,11 +22,11 @@ export const getDesignTokens = (mode: PaletteMode) => ({
         }
       : {
           // palette values for dark mode
-          primary: deepOrange,
-          divider: deepOrange[700],
+          // primary: "#8baf2e",
+          // divider: "#759c24",
           background: {
-            default: blueGrey[900],
-            paper: deepOrange[900],
+            default: "#062483",
+            paper: "#411a89",
           },
           text: {
             primary: "#fff",
@@ -37,3 +37,32 @@ export const getDesignTokens = (mode: PaletteMode) => ({
 });
 
 export default theme;
+
+// export const getDesignTokens = (mode: PaletteMode) => ({
+//   palette: {
+//     mode,
+//     ...(mode === "light"
+//       ? {
+//           // palette values for light mode
+//           primary: amber,
+//           divider: amber[200],
+//           text: {
+//             primary: grey[900],
+//             secondary: grey[800],
+//           },
+//         }
+//       : {
+//           // palette values for dark mode
+//           primary: deepOrange,
+//           divider: deepOrange[700],
+//           background: {
+//             default: blueGrey[900],
+//             paper: deepOrange[900],
+//           },
+//           text: {
+//             primary: "#fff",
+//             secondary: grey[500],
+//           },
+//         }),
+//   },
+// });

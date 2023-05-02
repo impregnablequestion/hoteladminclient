@@ -1,7 +1,15 @@
-* {
+/* * {
   border: 1px solid green;
-}
+} */
 
 body {
   margin: 10px;
+}
+
+ul {
+  margin: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+
 }

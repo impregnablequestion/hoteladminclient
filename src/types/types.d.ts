@@ -9,14 +9,14 @@ export interface Room {
 }
 
 export interface Hotel {
-    id: number;
-    name: string;
-    address: string;
-    country: string;
-    phoneNumber: string;
-    website: string;
-    email: string;
-    city: string | null;
-    rooms: RoomDto[];
-    numberOfRooms: number;
+  id: number;
+  name: string;
+  address: string;
+  country: string;
+  phoneNumber: string;
+  website: string;
+  email: string;
+  city: string | null;
+  rooms: RoomDto[];
+  numberOfRooms: number;
 }

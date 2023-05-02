@@ -15,7 +15,6 @@ function App() {
       <CssBaseline/>
       <Header/>
       <MainContainer/>
-      <Footer/>
     </ThemeProvider>
   )
 }
