@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dialog, Button, DialogActions, DialogContent, DialogTitle, DialogContentText, TextField } from "@mui/material"
+import { Dialog, Button, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material"
 import { Hotel } from "../../types/types";
 
 interface EditHotelDialogProps {

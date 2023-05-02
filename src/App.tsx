@@ -4,7 +4,6 @@ import MainContainer from './containers/MainContainer';
 import CssBaseline from "@mui/material/CssBaseline"
 import { useThemeContext } from './theme/ThemeContextProvider';
 import Header from './components/Header';
-import Footer from './components/Footer';
 
 function App() {
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Hotel, Room } from "../types/types"
 import { DeleteHotel, GetHotelByIdWithRooms, GetHotels, PostHotel, PutHotel } from "../services/HotelService"
 import styled from "@emotion/styled"
+import { DeleteRoom, GetRooms } from "../services/RoomService"
 
 const MainContainer = () => {
 
@@ -37,6 +38,14 @@ const MainContainer = () => {
       })
   }
 
+  const handleDeleteRoom = (room: Room) => {
+    DeleteRoom(room)
+      .then(() => {
+        GetRooms(room.hotelId)
+        .then(res => setSelectedRooms(res))
+      });
+  }
+
   useEffect(() => {
     selectedHotel && GetHotelByIdWithRooms(selectedHotel.id)
       .then(res => {
@@ -52,7 +61,7 @@ const MainContainer = () => {
 
   return (
     <div>
-      <SelectedTitle>Selected Hotel: {selectedHotel?.name}</SelectedTitle>
+      <SelectedTitle>{selectedHotel && "Selected Hotel: " + selectedHotel.name}</SelectedTitle>
       <Container sx={{
         display: 'flex',
         justifyContent: 'space-around'
@@ -65,7 +74,11 @@ const MainContainer = () => {
           editHotel={handleEditHotel}
           deleteHotel={handleDeleteHotel}
         />
-        <RoomContainer rooms={selectedRooms} hotel = {selectedHotel}/>
+        <RoomContainer 
+        rooms={selectedRooms}
+        hotel = {selectedHotel}
+        deleteRoom = {handleDeleteRoom}
+        />
       </Container>
     </div>
   )

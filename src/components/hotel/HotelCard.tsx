@@ -26,7 +26,7 @@ const HotelCard = ({ hotel, deleteHotel, setSelectedHotel, selectedHotel, editHo
         <p>Country: {hotel.country}</p>
         <p>Email: {hotel.email}</p>
         <p>Phone Number: {hotel.phoneNumber}</p>
-        <p>Rooms: {hotel.numberOfRooms}</p>
+        <p>Website: {hotel.website}</p>
       </CardContent>
       <CardActions>
         <Button

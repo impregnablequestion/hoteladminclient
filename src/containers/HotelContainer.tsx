@@ -41,9 +41,14 @@ const HotelContainer = ({ hotels, setSelectedHotel, editHotel, deleteHotel, addH
       borderRight: "2px dotted blue"
     }}>
       <AddHotelDialog addHotel={addHotel}/>
-      <ul>
-        {hotelsToDisplay}
-      </ul>
+      <Container sx={{
+        overflow: "scroll",
+        maxHeight: "38rem"
+      }}>
+        <ul>
+          {hotelsToDisplay}
+        </ul>
+      </Container>
     </Container>
   )
 }
